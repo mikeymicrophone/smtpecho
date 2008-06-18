@@ -10,6 +10,7 @@ class SmtpEcho < EventMachine::Protocols::SmtpServer
 	end
   
   def receive_message(headers, data)
+    send_data data
     # I could not figure out how to send a message
     # this class does not respond to :send_message
   end
@@ -32,4 +33,4 @@ class SmtpEcho < EventMachine::Protocols::SmtpServer
 	
 end
 
-EM::run { EventMachine::start_server '0.0.0.0', 8080, SmtpEcho }
+#EM::run { EventMachine::start_server '0.0.0.0', 8080, SmtpEcho }

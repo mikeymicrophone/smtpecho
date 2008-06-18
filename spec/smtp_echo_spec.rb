@@ -11,11 +11,11 @@ describe SmtpEcho do
     @message_sender = 'Tim'
     @message = 'Hi Boris'
     
-    EventMachine::run do
-      host = Localhost
-      port = Localport
-      EventMachine::start_server host, port, SmtpEcho
-    end
+    #    EventMachine::run do
+    #      host = Localhost
+    #      port = Localport
+    #      EventMachine::start_server host, port, SmtpEcho
+    #    end
   end
   
   after do
@@ -36,7 +36,7 @@ describe SmtpEcho do
 				:domain=>"bogus",
 				:from=>"larry.page@gmail.com",
 				:to=>"sergey.brin@gmail.com",
-				:header=> {"Subject"=>"Email subject line", "Reply-to"=>"me@example.com"},
+				:header=> {"Subject"=>"Email subject line", "Reply-to"=>"larry.page@gmail.com"},
 				:body=>"did you see idol?"
 
 		}
