@@ -1,0 +1,1 @@
+This subclass of EM::Protocol::SmtpServer is designed to receive a message and echo it back to the sender.
