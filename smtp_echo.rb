@@ -9,8 +9,9 @@ class SmtpEcho < EventMachine::Protocols::SmtpServer
 		super
 	end
   
-  def receive_message
-    send_data
+  def receive_message(headers, data)
+    # I could not figure out how to send a message
+    # this class does not respond to :send_message
   end
   
   def receive_sender sender
@@ -31,8 +32,4 @@ class SmtpEcho < EventMachine::Protocols::SmtpServer
 	
 end
 
-EventMachine::run do
-  host = '0.0.0.0'
-  port = 8080
-  EventMachine::start_server host, port, SmtpEcho
-end
+EM::run { EventMachine::start_server '0.0.0.0', 8080, SmtpEcho }

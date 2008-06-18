@@ -1,6 +1,10 @@
 require 'rubygems'
 require 'spec'
 require File.join( File.dirname(__FILE__), "..", "smtp_echo.rb" )
+
+# this spec doesn't complete
+# I think it's because the server runs in a loop and doesn't return
+
 describe SmtpEcho do
   before do
     @s_echo = SmtpEcho.new {}
@@ -8,8 +12,8 @@ describe SmtpEcho do
     @message = 'Hi Boris'
     
     EventMachine::run do
-      host = '0.0.0.0'
-      port = 8080
+      host = Localhost
+      port = Localport
       EventMachine::start_server host, port, SmtpEcho
     end
   end
